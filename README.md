@@ -4,7 +4,6 @@
 
 This software tool is for the Everett Chalmers Regional Hospital reception staff. 
 It has a range of features that allow the receptionists to serve clients efficiently and securely.
-<br>
 
 ## Development Environment
 *The following technologies and resources are used in this project*
@@ -14,7 +13,6 @@ It has a range of features that allow the receptionists to serve clients efficie
 - [Apache POI API](https://poi.apache.org/)
 - [FlatLaf Look and Feel](https://www.formdev.com/flatlaf/)
 - [JUnit 5 Framework](https://junit.org/junit5/docs/current/user-guide/)
-<br>
 
 ## Software Design Architecture
 This project uses the [Model-view-controller](https://www.geeksforgeeks.org/mvc-design-pattern/) architectural pattern which is a design pattern that specifies an application consists of a data model, presentation information, and control information. The pattern requires that each of these be separated into different objects.
