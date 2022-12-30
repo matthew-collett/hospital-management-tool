@@ -1,18 +1,9 @@
 # CS2043 Project - Team 6
-<br>
 
 ## Everett Chalmers Hospital Management Tool
 
 This software tool is for the Everett Chalmers Regional Hospital reception staff. 
 It has a range of features that allow the receptionists to serve clients efficiently and securely.
-<br>
-<br>
-
-## Development Team
-- Paige Corbyn - Project Manager
-- Matthew Collett - Technical Lead
-- Francesca Stewart - Progress Facilitator
-- Kieren Nicholson - Documentation Lead
 <br>
 
 ## Development Environment
