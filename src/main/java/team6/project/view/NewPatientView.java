@@ -1,6 +1,8 @@
 package team6.project.view;
 
 import team6.project.controller.AddPatientAction;
+import team6.project.controller.ExitInfoAction;
+import team6.project.controller.UpdatePatientAction;
 import team6.project.view.components.HeaderPanel;
 
 import javax.swing.*;
@@ -26,21 +28,23 @@ public class NewPatientView extends InfoView {
 
         final JScrollPane scrollPane = (JScrollPane) stream(getComponents()).filter(c -> c instanceof JScrollPane).findFirst().orElseThrow();
         final JTable infoTable = (JTable) scrollPane.getViewport().getView();
-        infoTable.setEnabled(true);
+
 
         final JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 2, 8, 0));
 
         final JButton discardButton = new JButton("Discard");
-        discardButton.addActionListener(e -> app.setView(new SearchView(app)));
+        discardButton.addActionListener(new ExitInfoAction(app));
         buttonPanel.add(discardButton);
 
         final JButton changeButton = new JButton();
-        changeButton.addActionListener(new AddPatientAction(app, infoTable));
 
         if (this instanceof UpdatePatientView) {
+            changeButton.addActionListener(new UpdatePatientAction(app, infoTable));
             changeButton.setText("Update");
+
         } else {
+            changeButton.addActionListener(new AddPatientAction(app, infoTable));
             changeButton.setText("Add");
         }
 

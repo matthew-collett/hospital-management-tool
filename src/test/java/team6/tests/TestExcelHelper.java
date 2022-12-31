@@ -19,7 +19,7 @@ public class TestExcelHelper {
     @Test
     void testReadWritePatient() {
 
-        final Patient testPatient = new Patient("344523", "Mr.", "John Smith", LocalDate.of(2000, FEBRUARY, 1),
+        final Patient testPatient = new Patient("344523", "Mr.", "Smith, John", LocalDate.of(2000, FEBRUARY, 1),
                 "506-849-2342", 202, new Doctor("234234", "Dorthy Maclean", "Neurology"),
                 "Headache", "Tylenol 500mg", "506-434-6753");
 

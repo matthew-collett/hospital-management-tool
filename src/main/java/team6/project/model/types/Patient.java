@@ -6,14 +6,13 @@ import static java.lang.String.format;
 
 public class Patient {
     private final String id;
-    private final String title;
-    private final String name;
+    private String title;
+    private String name;
     private final LocalDate dob;
     private String phone;
     private int room;
     private final Doctor doctor;
     private String conditions;
-
     private String medications;
     private String ePhone;
 
@@ -39,8 +38,16 @@ public class Patient {
         return title;
     }
 
+    public void setTitle(final String title) {
+        this.title = title;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
     }
 
     public LocalDate getDob() {

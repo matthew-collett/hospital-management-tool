@@ -22,6 +22,7 @@ import java.util.stream.StreamSupport;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.format;
 import static java.lang.String.valueOf;
+import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static java.util.stream.IntStream.range;
@@ -80,6 +81,40 @@ public class ExcelHelper {
                     patient.getPhone(), patient.getRoom(), patient.getDoctor(), patient.getConditions(), patient.getMedications(), patient.getEPhone());
 
             range(0, getLastCellNum(sheet.getRow(0))).forEach(sheet::autoSizeColumn);
+
+            final ByteArrayOutputStream out = new ByteArrayOutputStream();
+            workbook.write(out);
+            writeByteArrayToFile(file, out.toByteArray());
+        } catch (final IOException e) {
+            throw new IllegalStateException(format("Error writing excel to file at: %s", path));
+        }
+    }
+
+    public static void updatePatient(final Path path, final Patient patient) {
+
+        final XSSFWorkbook workbook;
+        final XSSFSheet sheet;
+        final File file = path.toFile();
+
+        if (!file.exists()) {
+            throw new IllegalStateException(format("No excel file to update at: %s", path));
+        } else {
+            try {
+                workbook = new XSSFWorkbook(file);
+            } catch (final IOException | InvalidFormatException e) {
+                throw new IllegalStateException(format("Error reading excel from file at: %s", path));
+            }
+            sheet = workbook.getSheetAt(0);
+        }
+
+        try (workbook) {
+            final Row row = iteratorToStream(sheet.rowIterator()).filter(r -> r.getCell(0).getStringCellValue().equals(patient.getId())).findFirst().orElseThrow();
+
+            final List<Object> data = asList(patient.getId(), patient.getTitle(), patient.getName(), patient.getDob(),
+                    patient.getPhone(), patient.getRoom(), patient.getDoctor(), patient.getConditions(),
+                    patient.getMedications(), patient.getEPhone());
+
+            range(0, data.size()).forEach(i -> row.getCell(i).setCellValue(valueOf(data.get(i))));
 
             final ByteArrayOutputStream out = new ByteArrayOutputStream();
             workbook.write(out);

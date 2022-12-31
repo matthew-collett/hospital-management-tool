@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 import static team6.project.helper.PathHelper.getDirectoryPath;
+import static team6.project.model.types.Doctor.*;
 
 public class AddPatientAction implements ActionListener {
     private final PatientApp app;
@@ -34,6 +35,7 @@ public class AddPatientAction implements ActionListener {
                 valueOf(infoTable.getValueAt(3, 3)), valueOf(infoTable.getValueAt(4, 3)));
 
         ExcelHelper.writePatient(getDirectoryPath(getClass()).resolve("PatientData.xlsx"), newPatient);
+        app.getModel().setPatients(ExcelHelper.readPatients(getDirectoryPath(getClass()).resolve("PatientData.xlsx")));
         app.getModel().setCurrentPatient(null);
         app.setView(new SearchView(app));
     }

@@ -2,7 +2,6 @@ package team6.project.view;
 
 import team6.project.controller.ExitInfoAction;
 import team6.project.controller.LogoutAction;
-import team6.project.controller.UpdatePatientAction;
 import team6.project.view.components.HeaderPanel;
 import team6.project.view.components.InfoTable;
 
@@ -32,7 +31,7 @@ public class InfoView extends JPanel {
 
         infoTable.setValueAt("<html><b>Patient ID:</b><html>", 0, 0);
         infoTable.setValueAt("<html><b>Title:</b><html>", 1, 0);
-        infoTable.setValueAt("<html><b>First, Last Name:</b><html>", 2, 0);
+        infoTable.setValueAt("<html><b>Last, First Name:</b><html>", 2, 0);
         infoTable.setValueAt("<html><b>Date of Birth:</b><html>", 3, 0);
         infoTable.setValueAt("<html><b>Phone Number:</b><html>", 4, 0);
 
@@ -67,7 +66,11 @@ public class InfoView extends JPanel {
 
         final JButton updateButton = new JButton("Update Patient");
         app.getRootPane().setDefaultButton(updateButton);
-        updateButton.addActionListener(new UpdatePatientAction(app, infoTable));
+        updateButton.addActionListener(e -> {
+            infoTable.setEnabled(true);
+            app.setView(new UpdatePatientView(app));
+        });
+
         buttonPanel.add(updateButton);
 
         final JButton exitButton = new JButton("Exit Patient Information");
@@ -85,5 +88,4 @@ public class InfoView extends JPanel {
     public Insets getInsets() {
         return new Insets(16, 32, 32, 32);
     }
-
 }
