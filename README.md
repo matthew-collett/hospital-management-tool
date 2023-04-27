@@ -7,8 +7,8 @@ It has a range of features that allow the receptionists to serve clients efficie
 
 ## Development Environment
 The following technologies and resources are used in this project
+- Java 11
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-- [GitHub Desktop](https://desktop.github.com/)
 - [Apache Maven Build Tool](https://maven.apache.org/)
 - [Apache POI API](https://poi.apache.org/)
 - [FlatLaf Look and Feel](https://www.formdev.com/flatlaf/)
