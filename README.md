@@ -6,7 +6,7 @@ This software tool is for the Everett Chalmers Regional Hospital reception staff
 It has a range of features that allow the receptionists to serve clients efficiently and securely.
 
 ## Development Environment
-*The following technologies and resources are used in this project*
+The following technologies and resources are used in this project
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [Apache Maven Build Tool](https://maven.apache.org/)
@@ -19,4 +19,4 @@ This project uses the [Model-view-controller](https://www.geeksforgeeks.org/mvc-
 
 #### MVC Architecture Diagram
 <br>
-<img src="https://user-images.githubusercontent.com/97645707/204953265-c7b4b686-1dc3-464b-ac06-efca600a62db.png" width='250'>
+<p align="center"><img src="https://user-images.githubusercontent.com/97645707/204953265-c7b4b686-1dc3-464b-ac06-efca600a62db.png" width='300px'></p>
